@@ -100,7 +100,14 @@ function App() {
   }
 
   const handlePercent = () => {
-    setNum((parseFloat(num) * 0.01).toString())
+    const result = parseFloat(num) * 0.01
+    let finalResult = ''
+    if (Math.abs(result) >= 1e10 || Math.abs(result) < 1e-6) {
+      finalResult = result.toExponential(6)
+    } else {
+      finalResult = parseFloat(result.toPrecision(10)).toString()
+    }
+    setNum(finalResult)
   }
 
   const handleClear = () => {
