@@ -86,7 +86,7 @@ function App() {
   const handleEquals= () => {
     if (prevNum !== '' && num !== '' & operation !== null) {
       const result = calculate(prevNum, num, operation)
-      const finalResult = result.toFixed(8).replace(/\.?0+$/, '')
+      const finalResult = result.toPrecision(8).replace(/\.?0+$/, '')
       setNum(finalResult)
       setPrevNum('')
       setOperation(null)
@@ -130,10 +130,10 @@ function App() {
 
   return (
     <>
-    <h1 className='m-5 text-center text-2xl text-gray-800'>A Simple Calculator</h1>
+    <h1 className='m-5 text-center text-2xl md:text-4xl text-gray-800'>A Simple Calculator</h1>
       <div className={`drop-shadow-xl/25 h-[75vh] w-[80vw] mx-auto rounded-4xl pt-5 ${light ? 'bg-gray-700' : 'bg-white'}`}>
-        <div className={`w-[25vw] h-[5vh] rounded-2xl z-20 mx-auto relative ${light ? 'bg-gray-600' : 'bg-white'}`}>
-          <div className='flex justify-between items-center absolute top-0 left-0 w-full h-full p-2'>
+        <div className={`md:w-[10vw] w-[25vw] h-[10vh] rounded-2xl z-20 mx-auto relative ${light ? 'bg-gray-600' : 'bg-white'}`}>
+          <div className='flex justify-between items-center absolute top-0 left-0 w-full h-full p-2 md:p-5'>
             
             <FaRegSun className={`text-base ${light ? 'text-gray-400' : 'text-black'}`} onClick={handleLight}/>
               
@@ -142,96 +142,96 @@ function App() {
           </div>
           
         </div>
-        <div className={`text-right mt-12 pl-7 pr-7 pb-3 min-h-[15vh] ${light ? 'text-white' : 'text-black'}`}>
+        <div className={`text-right mt-12 md:mt-20 pl-7 pr-7 pb-3 min-h-[15vh] ${light ? 'text-white' : 'text-black'}`}>
           <div className='text-xl font-medium h-[5vh]'>{prevNum} {operation} {num}</div>
           <div className='text-4xl font-bold'>{num || prevNum || 0} </div>
         </div>
         <div className={`h-[50vh] w-full rounded-4xl p-3 ${light ? 'bg-gray-600' : 'bg-white'}`}>
           <div>
-            <div className='flex justify-center items-center h-[9vh] gap-3'>
+            <div className='flex justify-center items-center h-[9vh] gap-3 text-base md:text-2xl'>
               <button onClick={() => handleClear()} className={`h-[7vh] w-[14vw] rounded-xl relative ${light ? 'bg-gray-700' : 'bg-white'}`}>
-                <span className='text-cyan-400 text-base font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>AC</span>
+                <span className='text-cyan-400 font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>AC</span>
               </button>
               <button onClick={() => handlePlusMinus()} className={`h-[7vh] w-[14vw] rounded-xl relative ${light ? 'bg-gray-700' : 'bg-white'}`}>
-                <span className='text-cyan-400 text-base font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+                <span className='text-cyan-400 font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
                   <FaPlusMinus />
                 </span>
               </button>
               <button onClick={() => handlePercent()} className={`h-[7vh] w-[14vw] rounded-xl relative ${light ? 'bg-gray-700' : 'bg-white'}`}>
-                <span className='text-cyan-400 text-base font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+                <span className='text-cyan-400 font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
                   <FaPercent />
                 </span>
               </button>
               <button onClick={() => handleOperation(iconValue.FaDivide)} className={`h-[7vh] w-[14vw] rounded-xl relative ${light ? 'bg-gray-700' : 'bg-white'}`}>
-                <span className='text-red-400 text-base font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+                <span className='text-red-400 font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
                   <FaDivide />
                 </span>
               </button>
             </div>
-            <div className='flex justify-center items-center h-[9vh] gap-3'>
+            <div className='flex justify-center items-center h-[9vh] gap-3 text-base md:text-2xl'>
               <button onClick={() => handleNumber('7')} className={`h-[7vh] w-[14vw] rounded-xl relative ${light ? 'bg-gray-700' : 'bg-white'}`}>
-                <span className={`text-base font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${light ? 'text-white' : 'text-black'}`}>7</span>
+                <span className={`font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${light ? 'text-white' : 'text-black'}`}>7</span>
               </button>
               <button onClick={() => handleNumber('8')} className={`h-[7vh] w-[14vw] rounded-xl relative ${light ? 'bg-gray-700' : 'bg-white'}`}>
-                <span className={`text-base font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${light ? 'text-white' : 'text-black'}`}>8</span>
+                <span className={`font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${light ? 'text-white' : 'text-black'}`}>8</span>
               </button>
               <button onClick={() => handleNumber('9')} className={`h-[7vh] w-[14vw] rounded-xl relative ${light ? 'bg-gray-700' : 'bg-white'}`}>
-                <span className={`text-base font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${light ? 'text-white' : 'text-black'}`}>9</span>
+                <span className={`font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${light ? 'text-white' : 'text-black'}`}>9</span>
               </button>
               <button onClick={() => handleOperation(iconValue.FaXmark)} className={`h-[7vh] w-[14vw] rounded-xl relative ${light ? 'bg-gray-700' : 'bg-white'}`}>
-                <span className='text-red-400 text-base font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+                <span className='text-red-400 font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
                   <FaXmark />
                 </span>
               </button>
             </div>
-            <div className='flex justify-center items-center h-[9vh] gap-3'>
+            <div className='flex justify-center items-center h-[9vh] gap-3 text-base md:text-2xl'>
               <button onClick={() => handleNumber('4')} className={`h-[7vh] w-[14vw] rounded-xl relative ${light ? 'bg-gray-700' : 'bg-white'}`}>
-                <span className={`text-base font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${light ? 'text-white' : 'text-black'}`}>4</span>
+                <span className={`font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${light ? 'text-white' : 'text-black'}`}>4</span>
               </button>
               <button onClick={() => handleNumber('5')} className={`h-[7vh] w-[14vw] rounded-xl relative ${light ? 'bg-gray-700' : 'bg-white'}`}>
-                <span className={`text-base font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${light ? 'text-white' : 'text-black'}`}>5</span>
+                <span className={`font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${light ? 'text-white' : 'text-black'}`}>5</span>
               </button>
               <button onClick={() => handleNumber('6')} className={`h-[7vh] w-[14vw] rounded-xl relative ${light ? 'bg-gray-700' : 'bg-white'}`}>
-                <span className={`text-base font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${light ? 'text-white' : 'text-black'}`}>6</span>
+                <span className={`font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${light ? 'text-white' : 'text-black'}`}>6</span>
               </button>
               <button onClick={() => handleOperation(iconValue.FaMinus)} className={`h-[7vh] w-[14vw] rounded-xl relative ${light ? 'bg-gray-700' : 'bg-white'}`}>
-                <span className='text-red-400 text-base font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+                <span className='text-red-400 font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
                   <FaMinus />
                 </span>
               </button>
             </div>
-            <div className='flex justify-center items-center h-[9vh] gap-3'>
+            <div className='flex justify-center items-center h-[9vh] gap-3 text-base md:text-2xl'>
               <button onClick={() => handleNumber('1')} className={`h-[7vh] w-[14vw] rounded-xl relative ${light ? 'bg-gray-700' : 'bg-white'}`}>
-                <span className={`text-base font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${light ? 'text-white' : 'text-black'}`}>1</span>
+                <span className={`font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${light ? 'text-white' : 'text-black'}`}>1</span>
               </button>
               <button onClick={() => handleNumber('2')} className={`h-[7vh] w-[14vw] rounded-xl relative ${light ? 'bg-gray-700' : 'bg-white'}`}>
-                <span className={`text-base font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${light ? 'text-white' : 'text-black'}`}>2</span>
+                <span className={`font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${light ? 'text-white' : 'text-black'}`}>2</span>
               </button>
               <button onClick={() => handleNumber('3')} className={`h-[7vh] w-[14vw] rounded-xl relative ${light ? 'bg-gray-700' : 'bg-white'}`}>
-                <span className={`text-base font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${light ? 'text-white' : 'text-black'}`}>3</span>
+                <span className={`font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${light ? 'text-white' : 'text-black'}`}>3</span>
               </button>
               <button onClick={() => handleOperation(iconValue.FaPlus)} className={`h-[7vh] w-[14vw] rounded-xl relative ${light ? 'bg-gray-700' : 'bg-white'}`}>
-                <span className='text-red-400 text-base font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+                <span className='text-red-400 font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
                   <FaPlus />
                 </span>
               </button>
             </div>
-            <div className='flex justify-center items-center h-[9vh] gap-3'>
+            <div className='flex justify-center items-center h-[9vh] gap-3 text-base md:text-2xl'>
               <button onClick={() => handleDelete()} className={`h-[7vh] w-[14vw] rounded-xl relative ${light ? 'bg-gray-700' : 'bg-white'}`}>
-                <span className={`text-base font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${light ? 'text-white' : 'text-black'}`}>
+                <span className={`font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${light ? 'text-white' : 'text-black'}`}>
                   <FaRotateLeft />
                 </span>
               </button>
               <button onClick={() => handleNumber('0')} className={`h-[7vh] w-[14vw] rounded-xl relative ${light ? 'bg-gray-700' : 'bg-white'}`}>
-                <span className={`text-base font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${light ? 'text-white' : 'text-black'}`}>0</span>
+                <span className={`font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${light ? 'text-white' : 'text-black'}`}>0</span>
               </button>
               <button onClick={() => handleDot()} className={`h-[7vh] w-[14vw] rounded-xl relative ${light ? 'bg-gray-700' : 'bg-white'}`}>
-                <span className={`text-base font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${light ? 'text-white' : 'text-black'}`}>
+                <span className={`font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${light ? 'text-white' : 'text-black'}`}>
                   .
                 </span>
               </button>
               <button onClick={() => handleEquals()} className={`h-[7vh] w-[14vw] rounded-xl relative ${light ? 'bg-gray-700' : 'bg-white'}`}>
-                <span className='text-red-400 text-base font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+                <span className='text-red-400 font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
                   <FaEquals />
                 </span>
               </button>
