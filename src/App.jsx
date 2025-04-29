@@ -132,8 +132,8 @@ function App() {
     <>
     <h1 className='m-5 text-center text-2xl md:text-4xl text-gray-800'>A Simple Calculator</h1>
       <div className={`drop-shadow-xl/25 h-[75vh] w-[80vw] mx-auto rounded-4xl pt-5 ${light ? 'bg-gray-700' : 'bg-white'}`}>
-        <div className={`md:w-[10vw] w-[25vw] h-[10vh] rounded-2xl z-20 mx-auto relative ${light ? 'bg-gray-600' : 'bg-white'}`}>
-          <div className='flex justify-between items-center absolute top-0 left-0 w-full h-full p-2 md:p-5'>
+        <div className={`md:w-[20vw] md:h-[5vh] w-[25vw] h-[5vh] rounded-2xl z-20 mx-auto relative ${light ? 'bg-gray-600' : 'bg-white'}`}>
+          <div className='flex justify-between items-center absolute top-0 left-0 w-full h-full p-2 md:p-4'>
             
             <FaRegSun className={`text-base ${light ? 'text-gray-400' : 'text-black'}`} onClick={handleLight}/>
               
