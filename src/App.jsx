@@ -86,7 +86,7 @@ function App() {
   const handleEquals= () => {
     if (prevNum !== '' && num !== '' & operation !== null) {
       const result = calculate(prevNum, num, operation)
-      const finalResult = result.toPrecision(8).replace(/\.?0+$/, '')
+      const finalResult = result.toPrecision(10).replace(/\.?0+$/, '')
       setNum(finalResult)
       setPrevNum('')
       setOperation(null)
